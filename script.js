@@ -6,7 +6,7 @@ const breakTimeInput = document.getElementById("breakTime");
 let timer; // Global variable to store the timer reference
 let remainingTime = 0; // Track the remaining time for the break
 let timerPaused = false; // Track whether the timer is currently paused
-let isMouseInsideWindow = true;
+let isMouseInsideWindow = true; // Track whether the mouse is currently inside the window
 
 function startBreak() {
   // Add a single event listener to detect user activity on the whole document
