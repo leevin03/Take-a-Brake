@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Break Reminder</title>
+  </head>
+  <body>
+    <div id="welcomeScreen">
+      <h1>Welcome! Let's take a break.</h1>
+      <p>
+        Set the break time (in minutes):
+        <input type="number" id="breakTime" min="1" value="1" />
+      </p>
+      <button onclick="startBreak()">Start Break</button>
+    </div>
+
+    <div id="countdownScreen" style="display: none">
+      <h1>Break Time</h1>
+      <p id="timerDisplay">00:00</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
