@@ -7,13 +7,16 @@ let timer; // Global variable to store the timer reference
 let remainingTime = 0; // Track the remaining time for the break
 let timerPaused = false; // Track whether the timer is currently paused
 let isMouseInsideWindow = true; // Track whether the mouse is currently inside the window
+let timerStarted = false; // Track whether the timer has been started
 
-function startBreak() {
-  // Add a single event listener to detect user activity on the whole document
+// Add a single event listener to detect user activity on the whole document
   document.addEventListener("mousemove", resetTimer);
   document.addEventListener("keydown", resetTimer);
   document.addEventListener("mousedown", resetTimer);
   document.addEventListener("touchstart", resetTimer);
+
+function startBreak() {
+  timerStarted = true;
 
   console.log("1", isMouseInsideWindow);
 
@@ -54,8 +57,17 @@ function displayTime(timeInSeconds) {
   timerDisplay.textContent = `${minutes}:${seconds}`;
 }
 
+function backToWelcomeScreen() {
+  timerStarted = false;
+  countdownScreen.style.display = "none";
+  welcomeScreen.style.display = "block";
+}
+
 // Function to reset the timer when user activity is detected
 function resetTimer() {
+  if (!timerStarted) {
+    return;
+  }
   clearInterval(timer);
   startBreak();
 }
