@@ -2,6 +2,7 @@ const welcomeScreen = document.getElementById("welcomeScreen");
 const countdownScreen = document.getElementById("countdownScreen");
 const timerDisplay = document.getElementById("timerDisplay");
 const breakTimeInput = document.getElementById("breakTime");
+const endScreen = document.getElementById("endScreen");
 
 let timer; // Global variable to store the timer reference
 let remainingTime = 0; // Track the remaining time for the break
@@ -43,8 +44,7 @@ function startBreak() {
     }
 
     if (remainingTime <= 0) {
-      clearInterval(timer);
-      alert("Time to take a break!");
+      displayEndScreen();
     }
   }, 1000);
 }
@@ -57,10 +57,18 @@ function displayTime(timeInSeconds) {
   timerDisplay.textContent = `${minutes}:${seconds}`;
 }
 
-function backToWelcomeScreen() {
+function displayWelcomeScreen() {
   timerStarted = false;
   countdownScreen.style.display = "none";
+  endScreen.style.display = "none";
   welcomeScreen.style.display = "block";
+}
+
+function displayEndScreen() {
+  timerStarted = false;
+  countdownScreen.style.display = "none";
+  welcomeScreen.style.display = "none";
+  endScreen.style.display = "block";
 }
 
 // Function to reset the timer when user activity is detected
