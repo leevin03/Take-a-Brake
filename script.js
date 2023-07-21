@@ -1,8 +1,8 @@
-const welcomeScreen = document.getElementById("welcomeScreen");
-const countdownScreen = document.getElementById("countdownScreen");
-const timerDisplay = document.getElementById("timerDisplay");
-const breakTimeInput = document.getElementById("breakTime");
-const endScreen = document.getElementById("endScreen");
+const welcomeScreen = document.querySelector("#welcomeScreen");
+const countdownScreen = document.querySelector("#countdownScreen");
+const timerDisplay = document.querySelector("#timerDisplay");
+const breakTimeInput = document.querySelector("#breakTime");
+const endScreen = document.querySelector("#endScreen");
 
 let timer; // Global variable to store the timer reference
 let remainingTime = 0; // Track the remaining time for the break
@@ -44,6 +44,7 @@ function startBreak() {
     }
 
     if (remainingTime <= 0) {
+      clearInterval(timer);
       displayEndScreen();
     }
   }, 1000);
@@ -54,7 +55,7 @@ function displayTime(timeInSeconds) {
     .toString()
     .padStart(2, "0");
   const seconds = (timeInSeconds % 60).toString().padStart(2, "0");
-  timerDisplay.textContent = `${minutes}:${seconds}`;
+  timerDisplay.textContent = `${minutes} minutes ${seconds} seconds`;
 }
 
 function displayWelcomeScreen() {

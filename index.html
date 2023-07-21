@@ -5,10 +5,10 @@
   </head>
   <body>
     <div id="welcomeScreen">
-      <h1>It's time for a break!</h1>
+      <h1>Time for a break!</h1>
       <p>
         Set your break time (in minutes):
-        <input type="number" id="breakTime" min="1" value="1" />
+        <input type="number" id="breakTime" min="0" value="1" />
       </p>
       <button onclick="startBreak()">Start Your Break</button>
     </div>
@@ -17,7 +17,7 @@
       <h1>Break Time</h1>
       <p id="timerDisplay">00:00</p>
       <div>
-        Just relax and listen to the sound you chose!
+        Just relax and listen to your favorite sound!
         <br />
         Don't touch your mouse or keyboard.
       </div>
@@ -27,7 +27,7 @@
     <div id="endScreen" style="display: none">
       <h1>I hope you enjoyed your break!</h1>
       <button onclick="displayWelcomeScreen()">Start Another Break</button>
-      <button>Remind yourself to take a brake!</button>
+      <button>Start a focus session!</button>
     </div>
 
     <script src="script.js"></script>
